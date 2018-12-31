@@ -1,4 +1,4 @@
-<?php namespace Stevenmaguire\OAuth2\Client\Test\Tool;
+<?php namespace BadPirate\OAuth2\Client\Test\Tool;
 
 use GuzzleHttp\Exception\BadResponseException;
 use Mockery as m;
@@ -9,7 +9,7 @@ class ProviderRedirectTraitTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->provider = new \Stevenmaguire\OAuth2\Client\Provider\Nest([
+        $this->provider = new \BadPirate\OAuth2\Client\Provider\Smartthings([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'none',

@@ -1,32 +1,32 @@
-# Nest Provider for OAuth 2.0 Client
+# Smartthings Provider for OAuth 2.0 Client
 
-[![Latest Version](https://img.shields.io/github/release/stevenmaguire/oauth2-nest.svg?style=flat-square)](https://github.com/stevenmaguire/oauth2-nest/releases)
+[![Latest Version](https://img.shields.io/github/release/badpirate/oauth2-smartthings.svg?style=flat-square)](https://github.com/badpirate/oauth2-smartthings/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/stevenmaguire/oauth2-nest/master.svg?style=flat-square)](https://travis-ci.org/stevenmaguire/oauth2-nest)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/stevenmaguire/oauth2-nest.svg?style=flat-square)](https://scrutinizer-ci.com/g/stevenmaguire/oauth2-nest/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/stevenmaguire/oauth2-nest.svg?style=flat-square)](https://scrutinizer-ci.com/g/stevenmaguire/oauth2-nest)
-[![Total Downloads](https://img.shields.io/packagist/dt/stevenmaguire/oauth2-nest.svg?style=flat-square)](https://packagist.org/packages/stevenmaguire/oauth2-nest)
+[![Build Status](https://img.shields.io/travis/badpirate/oauth2-smartthings/master.svg?style=flat-square)](https://travis-ci.org/badpirate/oauth2-smartthings)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/badpirate/oauth2-smartthings.svg?style=flat-square)](https://scrutinizer-ci.com/g/badpirate/oauth2-smartthings/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/badpirate/oauth2-smartthings.svg?style=flat-square)](https://scrutinizer-ci.com/g/badpirate/oauth2-smartthings)
+[![Total Downloads](https://img.shields.io/packagist/dt/badpirate/oauth2-smartthings.svg?style=flat-square)](https://packagist.org/packages/badpirate/oauth2-smartthings)
 
-This package provides Nest OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
+This package provides Smartthings OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 ## Installation
 
 To install, use composer:
 
 ```
-composer require stevenmaguire/oauth2-nest
+composer require badpirate/oauth2-smartthings
 ```
 
 ## Usage
 
-Usage is the same as The League's OAuth client, using `\Stevenmaguire\OAuth2\Client\Provider\Nest` as the provider.
+Usage is the same as The League's OAuth client, using `\Badpirate\OAuth2\Client\Provider\Smartthings` as the provider.
 
 ### Authorization Code Flow
 
 ```php
-$provider = new Stevenmaguire\OAuth2\Client\Provider\Nest([
-    'clientId'          => '{nest-client-id}',
-    'clientSecret'      => '{nest-client-secret}',
+$provider = new BadPirate\OAuth2\Client\Provider\Smart([
+    'clientId'          => '{smartthings-client-id}',
+    'clientSecret'      => '{smartthings-client-secret}',
     'redirectUri'       => 'https://example.com/callback-url'
 ]);
 ```
@@ -34,9 +34,9 @@ For further usage of this package please refer to the [core package documentatio
 
 ### Resource owner information
 
-Nest does not support access to any personal information of the authorizing resource owner. As such, this package does not support the `getResourceOwner` method documented in the core package.
+Smartthings does not support access to any personal information of the authorizing resource owner. As such, this package does not support the `getResourceOwner` method documented in the core package.
 
-This package will throw a `Stevenmaguire\OAuth2\Client\Provider\Exception\ResourceOwnerException` exception if you attempt to use this method.
+This package will throw a `BadPirate\OAuth2\Client\Provider\Exception\ResourceOwnerException` exception if you attempt to use this method.
 
 ## Testing
 
@@ -46,15 +46,15 @@ $ ./vendor/bin/phpunit
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/stevenmaguire/oauth2-nest/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/badpirate/oauth2-smartthings/blob/master/CONTRIBUTING.md) for details.
 
 
 ## Credits
 
-- [Steven Maguire](https://github.com/stevenmaguire)
-- [All Contributors](https://github.com/stevenmaguire/oauth2-nest/contributors)
+- [Kevin Lohman](https://github.com/badpirate)
+- [All Contributors](https://github.com/badpirate/oauth2-smartthings/contributors)
 
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/stevenmaguire/oauth2-nest/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/badpirate/oauth2-smartthings/blob/master/LICENSE) for more information.

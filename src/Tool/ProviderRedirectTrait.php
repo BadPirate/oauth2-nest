@@ -1,6 +1,6 @@
 <?php
 
-namespace Stevenmaguire\OAuth2\Client\Tool;
+namespace BadPirate\OAuth2\Client\Tool;
 
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Uri;

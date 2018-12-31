@@ -1,12 +1,12 @@
 {
-    "name": "stevenmaguire/oauth2-nest",
-    "description": "Nest OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+    "name": "badpirate/oauth2-smartthings",
+    "description": "Smartthings OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
         {
-            "name": "Steven Maguire",
-            "email": "stevenmaguire@gmail.com",
-            "homepage": "https://github.com/stevenmaguire"
+            "name": "Kevin Lohman",
+            "email": "badpirate@gmail.com",
+            "homepage": "https://github.com/badpirate"
         }
     ],
     "keywords": [
@@ -15,7 +15,7 @@
         "client",
         "authorization",
         "authorisation",
-        "nest"
+        "smartthings"
     ],
     "require": {
         "league/oauth2-client": "^2.0"
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Stevenmaguire\\OAuth2\\Client\\": "src/"
+            "BadPirate\\OAuth2\\Client\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stevenmaguire\\OAuth2\\Client\\Test\\": "tests/src/"
+            "BadPirate\\OAuth2\\Client\\Test\\": "tests/src/"
         }
     }
 }
