@@ -57,7 +57,7 @@ class Smartthings extends AbstractProvider
      */
     protected function getDefaultScopes()
     {
-        return [];
+        return ["app"];
     }
 
     /**
