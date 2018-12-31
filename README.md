@@ -24,7 +24,7 @@ Usage is the same as The League's OAuth client, using `\Badpirate\OAuth2\Client\
 ### Authorization Code Flow
 
 ```php
-$provider = new BadPirate\OAuth2\Client\Provider\Smart([
+$provider = new BadPirate\OAuth2\Client\Provider\SmartThings([
     'clientId'          => '{smartthings-client-id}',
     'clientSecret'      => '{smartthings-client-secret}',
     'redirectUri'       => 'https://example.com/callback-url'
