@@ -3,7 +3,7 @@
 use League\OAuth2\Client\Tool\QueryBuilderTrait;
 use Mockery as m;
 
-class NestTest extends \PHPUnit_Framework_TestCase
+class SmartthingsTest extends \PHPUnit_Framework_TestCase
 {
     use QueryBuilderTrait;
 
@@ -11,7 +11,7 @@ class NestTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->provider = new \BadPirate\OAuth2\Client\Provider\Nest([
+        $this->provider = new \BadPirate\OAuth2\Client\Provider\Smartthings([
             'clientId' => 'mock_client_id',
             'clientSecret' => 'mock_secret',
             'redirectUri' => 'none',
@@ -66,8 +66,8 @@ class NestTest extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getAuthorizationUrl();
         $uri = parse_url($url);
 
-        $this->assertEquals('home.nest.com', $uri['host']);
-        $this->assertEquals('/login/oauth2', $uri['path']);
+        $this->assertEquals('graph.api.smartthings.com', $uri['host']);
+        $this->assertEquals('/oauth/authorize', $uri['path']);
     }
 
     public function testGetBaseAccessTokenUrl()
@@ -77,8 +77,8 @@ class NestTest extends \PHPUnit_Framework_TestCase
         $url = $this->provider->getBaseAccessTokenUrl($params);
         $uri = parse_url($url);
 
-        $this->assertEquals('api.home.nest.com', $uri['host']);
-        $this->assertEquals('/oauth2/access_token', $uri['path']);
+        $this->assertEquals('graph.api.smartthings.com', $uri['host']);
+        $this->assertEquals('/oauth/token', $uri['path']);
     }
 
     public function testGetAccessToken()
@@ -115,28 +115,10 @@ class NestTest extends \PHPUnit_Framework_TestCase
     public function testCreateResourceOwner()
     {
         $token = m::mock('League\OAuth2\Client\Token\AccessToken');
-        $class = new \ReflectionClass('BadPirate\OAuth2\Client\Provider\Nest');
+        $class = new \ReflectionClass('BadPirate\OAuth2\Client\Provider\Smartthings');
         $method = $class->getMethod('createResourceOwner');
         $method->setAccessible(true);
         $user = $method->invokeArgs($this->provider, array([], $token));
-    }
-
-    /**
-     * @expectedException League\OAuth2\Client\Provider\Exception\IdentityProviderException
-     **/
-    public function testExceptionThrownWhenErrorObjectReceived()
-    {
-        $status = rand(401,599);
-        $postResponse = m::mock('Psr\Http\Message\ResponseInterface');
-        $postResponse->shouldReceive('getBody')->andReturn('{"error": "Temperature is in wrong format","type": "https://developers.nest.com/documentation/cloud/error-messages#format-error","message": "Temperature \'$temp\' is in wrong format","instance": "31441a94-ed26-11e4-90ec-1681e6b88ec1","details": {"field_name": "$temp"}}');
-        $postResponse->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
-        $postResponse->shouldReceive('getStatusCode')->andReturn($status);
-        $client = m::mock('GuzzleHttp\ClientInterface');
-        $client->shouldReceive('send')
-            ->times(1)
-            ->andReturn($postResponse);
-        $this->provider->setHttpClient($client);
-        $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
     }
 
     public function testSetRedirectLimit()
